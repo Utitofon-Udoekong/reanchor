@@ -1,0 +1,302 @@
+:root {
+  color-scheme: dark;
+  --bg: #000000;
+  --panel: #070707;
+  --line: #222222;
+  --text: #f4f4f4;
+  --muted: #8a8a8a;
+  --faint: #5a5a5a;
+  --accent: #3ee0c5;
+  --danger: #ff4d67;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: "IBM Plex Mono", "Cascadia Mono", "Segoe UI Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+button,
+a {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover,
+button.linkish:hover {
+  color: #ffffff;
+}
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 28px 64px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 36px;
+}
+
+.logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.wallet {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--muted);
+}
+
+.wallet button,
+.connect {
+  border: 1px solid var(--line);
+  padding: 7px 12px;
+  color: var(--text);
+}
+
+.connect {
+  color: var(--accent);
+  border-color: #1d4a43;
+}
+
+.wallet button:hover,
+.connect:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.label {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.hint {
+  position: relative;
+  outline: none;
+  cursor: help;
+}
+
+.hint:focus-visible {
+  outline: 1px solid #1d4a43;
+  outline-offset: 4px;
+}
+
+.tip {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: calc(100% + 8px);
+  width: max-content;
+  max-width: 260px;
+  padding: 8px 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.hint:hover > .tip,
+.hint:focus-visible > .tip {
+  display: block;
+}
+
+.stats > .hint:last-child > .tip,
+.times > .hint:last-child > .tip {
+  left: auto;
+  right: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr;
+  gap: 28px;
+  margin-bottom: 36px;
+}
+
+.figure {
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.figure.range {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.range-arrow {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+  flex: none;
+}
+
+.figure.accent {
+  color: var(--accent);
+}
+
+.status-value {
+  font-size: 22px;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.sub {
+  margin-top: 10px;
+  color: var(--faint);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 8px 0 40px;
+}
+
+.trigger {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 10px 16px;
+  letter-spacing: 0.06em;
+}
+
+.trigger:hover:not(:disabled) {
+  background: #06221c;
+}
+
+.trigger:disabled {
+  color: var(--faint);
+  border-color: var(--line);
+  cursor: default;
+}
+
+.note {
+  color: var(--muted);
+  min-height: 1.2em;
+}
+
+.note.bad {
+  color: var(--danger);
+}
+
+.panel {
+  border: 1px solid var(--line);
+  padding: 22px 22px 8px;
+  margin-bottom: 18px;
+}
+
+.times {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.8fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.time {
+  color: var(--text);
+  word-break: break-all;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #161616;
+  align-items: baseline;
+}
+
+.row span {
+  color: var(--faint);
+}
+
+.hash {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.hash a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.copied {
+  color: var(--accent);
+}
+
+.contracts {
+  margin-top: 28px;
+}
+
+.contracts .row a {
+  color: var(--muted);
+}
+
+@media (max-width: 800px) {
+  .shell {
+    padding: 0 16px 48px;
+  }
+
+  .stats,
+  .times {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .figure {
+    font-size: 34px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
